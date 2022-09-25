@@ -2,7 +2,9 @@ import Flutter
 import UIKit
 import FBSDKShareKit
 import PhotosUI
-public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate {
+
+// facebook share removed
+public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin{
     
     
     let _methodWhatsApp = "whatsapp_share";
@@ -186,16 +188,16 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
     // @ map conting meesage and url
     
     func sharefacebook(message:Dictionary<String,Any>, result: @escaping FlutterResult)  {
-        let viewController = UIApplication.shared.delegate?.window??.rootViewController
-        //let shareDialog = ShareDialog()
-        let shareContent = ShareLinkContent()
-        shareContent.contentURL = URL.init(string: message["url"] as! String)!
-        shareContent.quote = message["msg"] as? String
-        
-        let shareDialog = ShareDialog(viewController: viewController, content: shareContent, delegate: self)
-        shareDialog.mode = .automatic
-        shareDialog.show()
-        result("Sucess")
+//        let viewController = UIApplication.shared.delegate?.window??.rootViewController
+//        //let shareDialog = ShareDialog()
+//        let shareContent = ShareLinkContent()
+//        shareContent.contentURL = URL.init(string: message["url"] as! String)!
+//        shareContent.quote = message["msg"] as? String
+//
+//        let shareDialog = ShareDialog(viewController: viewController, content: shareContent, delegate: self)
+//        shareDialog.mode = .automatic
+//        shareDialog.show()
+//        result("Sucess")
         
     }
     
@@ -317,18 +319,18 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         }
     }
     
-    //Facebook delegate methods
-    public func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
-        print("Share: Success")
-        
-    }
-    
-    public func sharer(_ sharer: Sharing, didFailWithError error: Error) {
-        print("Share: Fail")
-        
-    }
-    
-    public func sharerDidCancel(_ sharer: Sharing) {
-        print("Share: Cancel")
-    }
+//    //Facebook delegate methods
+//    public func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
+//        print("Share: Success")
+//
+//    }
+//
+//    public func sharer(_ sharer: Sharing, didFailWithError error: Error) {
+//        print("Share: Fail")
+//
+//    }
+//
+//    public func sharerDidCancel(_ sharer: Sharing) {
+//        print("Share: Cancel")
+//    }
 }
